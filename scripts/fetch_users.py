@@ -8,7 +8,13 @@ connection = psycopg2.connect(
     )
 cursor = connection.cursor()
 cursor.execute("SELECT * FROM users;")
-users = cursor.fetchmany(3)
-print(users)
+users = cursor.fetchall()
+for user in users:
+    print("User ID :", user[0])
+    print("Name    :", user[1])
+    print("Email   :", user[2])
+    print("Mobile  :", user[3])
+    print("----------------------------")
+
 
 cursor.close()
