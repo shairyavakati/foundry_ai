@@ -1,3 +1,4 @@
+from scripts.db_connection import get_connection
 from scripts.fetch_users import view_users
 from scripts.add_user import add_user
 from scripts.update_user import update_user
