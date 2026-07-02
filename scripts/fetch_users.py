@@ -18,7 +18,7 @@ def view_users():
             print("Mobile  :", user[3])
             print("----------------------------")
     except Exception as e:
-        print("❌ Database Error:", e)
+        print(" Database Error:", e)
     finally:
         if cursor:
             cursor.close()

@@ -32,5 +32,5 @@ def delete_user():
             cursor.close()
         if connection:
             connection.close()
-        # No further commit here; commits are handled after successful operations.
+        
 

@@ -17,6 +17,28 @@ def add_user():
         )
         connection.commit()
         print("✅ User Added Successfully!")
+    
+    
+        def add_user():
+            
+            print("1. Inputs received")
+
+        connection = get_connection()
+        print("2. Connected")
+
+        cursor = connection.cursor()
+        print("3. Cursor created")
+
+        cursor.execute(
+            "INSERT INTO users(name, email, mobile_no) VALUES (%s, %s, %s)",
+            (name, email, mobile)
+        )
+
+        print("4. Query executed")
+
+        connection.commit()
+        print("5. Commit successful")
+   
     except Exception as e:
         # attempt rollback if possible
         if connection:

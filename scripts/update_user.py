@@ -22,5 +22,5 @@ def update_user():
             cursor.close()
         if connection:
             connection.close()
-        # commit is handled after successful execution; no commit should occur here
+        
     
