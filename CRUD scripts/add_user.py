@@ -1,11 +1,37 @@
 import psycopg2
 from scripts.db_connection import get_connection
+from validations.validation_engine import get_valid_input
 
 
 def add_user():
-    name = input("Enter Name   : ")
-    email = input("Enter Email  : ")
-    mobile = input("Enter Phone number : ")
+    name = get_valid_input(
+        "Enter Name: ",
+        2,
+        50,
+        "Name cannot be empty.",
+        "Name must contain at least 2 characters."
+    )
+    email = get_valid_input(
+        "Enter Email: ",
+        5,
+        100,
+        "Email cannot be empty.",
+        "Email must contain at least 5 characters."
+    )
+    email = get_valid_input(
+        "Enter Email: ",
+        5,
+        100,
+        "Email cannot be empty.",
+        "Email must contain at least 5 characters."
+    )
+    mobile = get_valid_input(
+        "Enter Mobile Number: ",
+        10,
+        10,
+        "Mobile Number cannot be empty.",
+        "Mobile Number must contain at least 10 characters."
+    )
     connection = None
     cursor = None
     try:
@@ -16,7 +42,7 @@ def add_user():
             (name, email, mobile)
         )
         connection.commit()
-        print("✅ User Added Successfully!")
+        print(" User Added Successfully!")
     
     
         def add_user():
