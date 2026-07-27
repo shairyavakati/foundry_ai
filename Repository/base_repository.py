@@ -14,6 +14,27 @@ class BaseRepository:
             self.db.commit()
             self.db.refresh(new_record)
             return new_record
+        except Exception :
+            self.db.rollback()
+            raise
+
+    def get_by_id(self, id: int):
+        query = self.db.query(self.model)
+        record = query.filter(self.model.id == id).first()
+        return record
+    def update(self, id: int, data: dict):
+        record = self.get_by_id(id)
+        if record is None:
+            return None
+        try:
+            for key, value in data.items():
+                setattr(record, key, value)
+            self.db.commit()
+            self.db.refresh(record)
+            return record
         except Exception:
             self.db.rollback()
             raise
+        
+        
+
