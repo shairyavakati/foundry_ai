@@ -46,5 +46,12 @@ class BaseRepository:
         except Exception:
             self.db.rollback()
             raise
-
+    def get_all(
+    self,
+    limit: int = 20,
+    offset: int = 0,
+):
+        query = self.db.query(self.model)
+        return query.offset(offset).limit(limit).all()
+        
 
