@@ -35,6 +35,16 @@ class BaseRepository:
         except Exception:
             self.db.rollback()
             raise
-        
-        
+    def delete(self, id: int):
+        record = self.get_by_id(id)
+        if record is None:
+            return None
+        try:
+            self.db.delete(record)
+            self.db.commit()
+            return record
+        except Exception:
+            self.db.rollback()
+            raise
+
 
