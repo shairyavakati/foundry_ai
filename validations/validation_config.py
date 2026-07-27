@@ -4,31 +4,39 @@ VALIDATION_CONFIG = {
 
         "name": {
             "required": True,
-            "type": str,
+            "type": "str",
             "min_length": 3,
             "max_length": 100
         },
 
         "age": {
             "required": True,
-            "type": int,
+            "type": "int",
             "min_value": 18,
             "max_value": 120
         },
 
         "email": {
             "required": True,
-            "type": str,
+            "type": "str",
             "regex": r"^[\w\.-]+@[\w\.-]+\.\w+$"
         },
 
         "phone": {
             "required": True,
-            "type": str,
+            "type": "str",
             "length": 10,
             "regex": r"^\d{10}$"
         }
 
     }
 
+}
+TYPE_MAPPING = {
+    "str": str,
+    "int": int,
+    "float": float,
+    "bool": bool,
+    "list": list,
+    "dict": dict
 }
