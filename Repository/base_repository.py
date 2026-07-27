@@ -14,6 +14,6 @@ class BaseRepository:
             self.db.commit()
             self.db.refresh(new_record)
             return new_record
-        except Exception as e:
+        except Exception:
             self.db.rollback()
-            raise e 
+            raise
